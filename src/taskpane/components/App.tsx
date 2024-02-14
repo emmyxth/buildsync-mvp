@@ -2,11 +2,12 @@ import * as React from "react";
 import Header from "./Header";
 import HeroList, { HeroListItem } from "./HeroList";
 import TextInsertion from "./TextInsertion";
+import ChatScreen from "./ChatScreen";
 import { makeStyles } from "@fluentui/react-components";
 import { Ribbon24Regular, LockOpen24Regular, DesignIdeas24Regular } from "@fluentui/react-icons";
 
 interface AppProps {
-  title: string;
+  // title: string;
 }
 
 const useStyles = makeStyles({
@@ -15,14 +16,14 @@ const useStyles = makeStyles({
   },
 });
 
-const App = (props: AppProps) => {
+const App = () => {
   const styles = useStyles();
   // The list items are static and won't change at runtime,
   // so this should be an ordinary const, not a part of state.
   const listItems: HeroListItem[] = [
     {
       icon: <Ribbon24Regular />,
-      primaryText: "Achieve more with Office integration",
+      primaryText: " more with Office ",
     },
     {
       icon: <LockOpen24Regular />,
@@ -36,9 +37,10 @@ const App = (props: AppProps) => {
 
   return (
     <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
-      <HeroList message="Discover what this add-in can do for you today!" items={listItems} />
-      <TextInsertion />
+      {/* <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" /> */}
+      <ChatScreen />
+      {/* <HeroList message="Discover what this add-in can do for you today!" items={listItems} />
+      <TextInsertion /> */}
     </div>
   );
 };
