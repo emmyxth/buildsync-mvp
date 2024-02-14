@@ -30,8 +30,8 @@ const ChatScreen: React.FC = () => {
   const mergedMessages = [...userChatMessages, ...botChatMessages].sort((a, b) => a.timestamp - b.timestamp);
 
   return (
-    <Box sx={{ p: 2 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 2 }}>
+    <Box sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 2 }}>
         {mergedMessages.map((msg, index) => (
           msg.hasOwnProperty('feedback') // Assuming feedback is unique to user messages
             ? <UserChatBubble key={`userMsg-${index}`} message={msg.message} />
