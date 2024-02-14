@@ -1,0 +1,17 @@
+.userChatBubble {
+    /* Styling for user chat bubbles */
+    margin: 10px;
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  
+  .botChatBubble {
+    /* Styling for bot chat bubbles */
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgrey;
+    border-radius: 20px;
+    width: fit-content;
+  }
