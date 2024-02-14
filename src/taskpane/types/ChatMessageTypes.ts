@@ -6,5 +6,10 @@ export interface UserChatMessage {
   export interface BotChatMessage {
     message: string;
     timestamp: number;
+    flowBoxes?: FlowBox[];
   }
   
+  interface FlowBox {
+    instructions: string;
+    reference: string;
+  }
