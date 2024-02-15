@@ -12,26 +12,62 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const BuildingCodeScreen = () => {
-  const dummyBuildingCodes: BuildingCode[] = [
-    {
-      title: "ASCE/SEI 7",
-      description: "12.7.3 Structural Modeling A mathematical model of the structure shall be constructed for the purpose of determining member forces and structure displacements resulting from applied loads and any imposed displacements or P-delta effects. The model shall include the stiffness and strength of elements that are significant to the distribution of forces and deformations in the structure and represent the spatial distribution of mass and stiffness throughout the structure. In addition, the model shall comply with the following: a. Stiffness properties of concrete and masonry elements shall consider the effects of cracked sections. b. For steel moment frame systems, the contribution of panel zone deformations to overall story drift shall be included. Structures that have horizontal structural irregularity Type 1a, 1b, 4, or 5 of Table 12.3-1 shall be analyzed using a 3-D representation. Where a 3-D model is used, a minimum of three dynamic degrees of freedom consisting of translation in two orthogonal plan directions and rotation about the vertical axis shall be included at each level of the structure. Where the diaphragms have not been classified as rigid or flexible in accordance with Section 12.3.1, the model shall include representation of the diaphragm’s stiffness characteristics and such additional dynamic degrees of freedom as are required to account for the participation of the diaphragm in the structure’s dynamic response.",
-      refs: [{ "Section 1": "Details of Section 1" }],
-      index: 0
-    },
-    {
-      title: "Building Code 2",
-      description: "Description of Building Code 2",
-      refs: [{ "Section 2": "Details of Section 2" }],
-      index: 1
-    },
-    {
-      title: "Building Code 3",
-      description: "Description of Building Code 3",
-      refs: [{ "Section 3": "Details of Section 3" }],
-      index: 2
-    }
-  ];
+const dummyBuildingCodes = [{
+    title: "ASCE 7",
+    description: `
+<h3>2.3.1 Basic Combinations</h3>
+<p>Structures, components, and foundations shall be designed so that their design strength equals or exceeds the effects of the factored loads in the following combinations. Effects of one or more loads not acting shall be considered. Seismic load effects shall be combined loads, in accordance with Section 2.3.6. The most unfavorable effects from wind loads, tornado loads, and earthquake loads shall be considered, where appropriate, but they need not be assumed to act simultaneously. Refer to Sections 1.4, 2.3.6, 12.4, and 12.4.3 for the specific definition of the earthquake load effect, E. Each relevant strength limit state shall be investigated.</p>
+
+<ol>
+  <li>1a. 1.4D</li>
+  <li>2a. 1.2D + 1.6L + (0.5Lr or 0.3S or 0.5R)</li>
+  <li>3a. 1.2D + (1.6Lr or 1.0S or 1.6R) + (L or 0.5W)</li>
+  <li>4a. 1.2D + 1.0W (or W<sub>r</sub>) + L + (0.5L<sub>r</sub> or 0.3S or 0.5R)</li>
+  <li>5a. 0.9D + 1.0W (or W<sub>r</sub>)</li>
+</ol>
+
+<h3>EXCEPTIONS:</h3>
+<ol>
+  <li>The load factor on L in combinations 3a and 4a is permitted to equal 0.5 for all occupancies in which L<sub>0</sub>, in Chapter 4, Table 4.3-1, is less than or equal to 100 psf (4.78 kN/m<sup>2</sup>), with the exception of garages or areas occupied as places of public assembly.</li>
+  <li>In combinations 2a and 4a, the companion load, S, shall be taken as either the flat roof snow load (p<sub>f</sub>) or the sloped roof snow load (p<sub>s</sub>).</li>
+  <li>Where using W<sub>r</sub> in combination 4a, (0.5L<sub>r</sub> or 0.3S or 0.5R) is permitted to be replaced with 0.5 (L<sub>r</sub> or R).</li>
+</ol>
+
+<p>Where fluid loads, F, are present, they shall be included with the same load factor as dead load, D, in combinations 1a through 4a. Where loads, H, are present, they shall be included as follows:</p>
+<ol>
+  <li>Where the effect of H adds to the principal load effect, include H with a load factor of 1.6;</li>
+  <li>Where the effect of H resists the principal load effect, include H with a load factor of 0.9, where the load H is permanent, or a load factor of 0 for all other conditions.</li>
+</ol>
+
+<p>Each relevant strength limit state shall be investigated.</p>
+    `,
+    refs: [
+      { "Sections 1.4,": "Definition of Earthquake Load Effect" },
+      { "2.3.6,": "Combining Load Effects" },
+      { "12.4,": "Wind Loads" },
+    ],
+    index: 1
+  }, 
+  {
+    title: "ASCE 7",
+    description: `
+    <h3>2.3.2 Load Combinations Including Flood Load</h3>
+    <p>When a structure is located in a flood zone (Section 5.3.1), the following load combinations shall be considered in addition to the basic combinations in Section 2.3.1:</p>
+    <p>In V-Zones or Coastal A-Zones:</p>
+    <ol>
+      <li>4b. 1.2D + 1.0W + 2.0F<sub>a</sub> + L + (0.5L<sub>r</sub> or 0.3S or 0.5R)</li>
+      <li>5b. 0.9D + 1.0W + 2.0F<sub>a</sub></li>
+    </ol>
+    <p>In noncoastal A-Zones:</p>
+    <ol>
+      <li>4b. 1.2D + 0.5W + 1.0F<sub>a</sub> + L + (0.5L<sub>r</sub> or 0.3S or 0.5R)</li>
+      <li>5b. 0.9D + 0.5W + 1.0F<sub>a</sub></li>
+    </ol>    
+    `,
+    refs: [
+    ],
+    index: 1
+  }];
 
   return (
     <div style={{ display: 'flex', overflowX: 'scroll', padding: "5%" }}>
